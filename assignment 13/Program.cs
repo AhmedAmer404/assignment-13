@@ -100,10 +100,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-class Program
-{
-    static void Main()
-    {
+
         List<int> grades = new List<int>
         {
             85, 92, 78, 95, 88, 70, 100, 65
@@ -142,5 +139,44 @@ class Program
 
         Console.WriteLine("\nGrade Strings:");
         gradeStrings.ForEach(Console.WriteLine);
+  
+
+
+
+
+    static void Main()
+    {
+        Stack<string> history = new Stack<string>();
+
+        history.Push("google.com");
+        history.Push("github.com");
+        history.Push("stackoverflow.com");
+        history.Push("youtube.com");
+        history.Push("claude.ai");
+
+        Console.WriteLine("Current Page: " + history.Peek());
+
+        Console.WriteLine("\nGoing Back:");
+
+        for (int i = 0; i < 3; i++)
+        {
+            Console.WriteLine("Leaving: " + history.Pop());
+        }
+
+        Console.WriteLine("\nCurrent Page: " + history.Peek());
+
+        Console.WriteLine("\nTryPop on Empty Stack:");
+
+        Stack<string> emptyStack = new Stack<string>();
+
+        if (emptyStack.TryPop(out string page))
+        {
+            Console.WriteLine("Removed: " + page);
+        }
+        else
+        {
+            Console.WriteLine("Stack is empty. Nothing to remove.");
+        }
     }
-}
+
+
